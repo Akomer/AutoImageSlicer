@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ImageSlicer.Model;
+using System.Drawing;
+using System.Collections.ObjectModel;
 
 namespace ImageSlicer.ViewModel
 {
@@ -11,6 +13,7 @@ namespace ImageSlicer.ViewModel
         private List<MultiImage> images;
 
         public DelegateCommand LoadImageCommand { get; private set;}
+        public ObservableCollection<MultiImage> Images => new ObservableCollection<MultiImage>(images);
 
         public MainWindowViewModel()
         {
@@ -24,9 +27,15 @@ namespace ImageSlicer.ViewModel
             {
                 if (dialoge.ShowDialog() == DialogResult.OK)
                 {
-                    images.Add(new MultiImage(dialoge.FileName));
+                    AddMultiImage(new MultiImage(dialoge.FileName));
                 }
             }
+        }
+
+        private void AddMultiImage(MultiImage mi)
+        {
+            images.Add(mi);
+            OnPropertyChanges(nameof(images));
         }
 
         private static OpenFileDialog SinglePictureOpenDialoge()

@@ -8,9 +8,11 @@ namespace ImageSlicer.Model
     {
         private Image baseImage;
         private String title;
+        private string path;
 
         public Image BaseImage => baseImage;
         public String Title => title;
+        public string FullPath => path;
 
         public MultiImage(Bitmap baseImage)
         {
@@ -21,6 +23,7 @@ namespace ImageSlicer.Model
         public MultiImage(string filePath)
         {
             baseImage = Image.FromFile(filePath);
+            path = filePath;
             title = Path.GetFileNameWithoutExtension(filePath);
         }
     }

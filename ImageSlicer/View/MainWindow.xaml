@@ -17,10 +17,14 @@
             <ColumnDefinition Width="*" MinWidth="150"/>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+        <ListView Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"
+                  ItemsSource="{Binding Images}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Image></Image>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="{Binding Title}"/>
+                        <Image Source="{Binding FullPath}" Height="Auto" Width="Auto" MaxHeight="100" MaxWidth="100"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -28,7 +32,7 @@
         <Button Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Content=">>" Margin="5" Padding="5"/>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Load Image" Margin="5" Padding="5"/>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Load Image" Command="{Binding LoadImageCommand}" Margin="5" Padding="5"/>
             <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Load Folder" Margin="5" Padding="5"/>
         </StackPanel>
 
