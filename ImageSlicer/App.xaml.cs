@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ImageSlicer
@@ -12,6 +7,14 @@ namespace ImageSlicer
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
-    {
+    { 
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var rnd = new Random();
+
+            StartupUri = new Uri("/ImageSlicer;component/View/MainWindow.xaml", UriKind.Relative);
+
+        }
     }
+
 }
