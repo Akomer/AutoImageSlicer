@@ -28,8 +28,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content=">" Margin="5" Padding="5"/>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content=">>" Margin="5" Padding="5"/>
+        </StackPanel>
         
-        <Button Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Content=">>" Margin="5" Padding="5"/>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Load Image" Command="{Binding LoadImageCommand}" Margin="5" Padding="5"/>
